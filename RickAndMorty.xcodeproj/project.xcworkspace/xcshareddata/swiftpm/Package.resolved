@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DefaultNetworkOperationPackage",
+        "repositoryURL": "https://github.com/emircanaydin/DefaultNetworkOperationPackage",
+        "state": {
+          "branch": null,
+          "revision": "9adbd5b8acce82e0501b0b679dbac9ae26016435",
+          "version": "1.2.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
