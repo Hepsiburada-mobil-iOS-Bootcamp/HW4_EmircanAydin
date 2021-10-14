@@ -10,13 +10,15 @@ import Foundation
 class CharacterCardLabelPackData {
 
     private(set) var characterHeader: CharacterHeaderData
-    private(set) var characterInfo: CharacterInfoData
+    private(set) var characterStatus: CharacterSimpleRowData
+    private(set) var characterGender: CharacterSimpleRowData
     private(set) var characterOriginLocation: CharacterLocationData
     private(set) var characterLastSeenLocation: CharacterLocationData
     
-    init(characterHeader: CharacterHeaderData, characterInfo: CharacterInfoData, characterOriginLocation: CharacterLocationData, characterLastSeenLocation: CharacterLocationData) {
+    init(characterHeader: CharacterHeaderData, characterStatus: CharacterSimpleRowData, characterGender: CharacterSimpleRowData, characterOriginLocation: CharacterLocationData, characterLastSeenLocation: CharacterLocationData) {
         self.characterHeader = characterHeader
-        self.characterInfo = characterInfo
+        self.characterStatus = characterStatus
+        self.characterGender = characterGender
         self.characterOriginLocation = characterOriginLocation
         self.characterLastSeenLocation = characterLastSeenLocation
     }

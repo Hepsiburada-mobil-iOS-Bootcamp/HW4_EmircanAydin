@@ -13,7 +13,7 @@ class CharacterHeaderComponent: GenericBaseView<CharacterHeaderData> {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.clipsToBounds = true
-        temp.backgroundColor = .white
+        temp.backgroundColor = .clear
         return temp
     }()
     
@@ -22,8 +22,8 @@ class CharacterHeaderComponent: GenericBaseView<CharacterHeaderData> {
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textColor = .white
         temp.text = " "
-        temp.contentMode = .center
-        temp.textAlignment = .center
+        temp.contentMode = .left
+        temp.textAlignment = .left
         temp.font = FontManager.bold(24).value
         return temp
     }()

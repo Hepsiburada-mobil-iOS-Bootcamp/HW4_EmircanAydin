@@ -7,23 +7,23 @@
 
 import UIKit
 
-class CharacterInfoComponent: GenericBaseView<CharacterInfoData> {
+class CharacterSimpleRowComponent: GenericBaseView<CharacterSimpleRowData> {
     
     private lazy var containerView: UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.clipsToBounds = true
-        temp.backgroundColor = .white
+        temp.backgroundColor = .clear
         return temp
     }()
     
-    private lazy var infoLabel: UILabel = {
+    private lazy var rowLabel: UILabel = {
         let temp = UILabel()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textColor = .white
         temp.text = " "
-        temp.contentMode = .center
-        temp.textAlignment = .center
+        temp.contentMode = .left
+        temp.textAlignment = .left
         temp.font = FontManager.medium(18).value
         return temp
     }()
@@ -36,12 +36,12 @@ class CharacterInfoComponent: GenericBaseView<CharacterInfoData> {
     override func loadDataView() {
         super.loadDataView()
         guard let data = returnData() else { return }
-        infoLabel.text = "\(data.characterStatus) - \(data.characterStatus)"
+        rowLabel.text = data.rowValue
     }
     
     private func addHeaderComponents() {
         addSubview(containerView)
-        containerView.addSubview(infoLabel)
+        containerView.addSubview(rowLabel)
         
         NSLayoutConstraint.activate([
             
@@ -50,10 +50,10 @@ class CharacterInfoComponent: GenericBaseView<CharacterInfoData> {
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            infoLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
-            infoLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            infoLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            infoLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            rowLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+            rowLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            rowLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            rowLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
         
         ])
     }

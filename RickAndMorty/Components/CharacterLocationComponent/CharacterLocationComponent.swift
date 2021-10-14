@@ -9,10 +9,18 @@ import UIKit
 
 class CharacterLocationComponent: GenericBaseView<CharacterLocationData> {
     
+    private lazy var containerView: UIView = {
+        let temp = UIView()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.clipsToBounds = true
+        temp.backgroundColor = .clear
+        return temp
+    }()
+    
     private lazy var mainStackView: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [titleLabel, locationLabel])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .center
+        temp.alignment = .leading
         temp.distribution = .fill
         temp.axis = .vertical
         temp.spacing = 10
@@ -24,8 +32,8 @@ class CharacterLocationComponent: GenericBaseView<CharacterLocationData> {
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textColor = RickAndMortyColor.subTitleGray.value
         temp.text = " "
-        temp.contentMode = .center
-        temp.textAlignment = .center
+        temp.contentMode = .left
+        temp.textAlignment = .left
         temp.font = FontManager.regular(16).value
         return temp
     }()
@@ -35,14 +43,17 @@ class CharacterLocationComponent: GenericBaseView<CharacterLocationData> {
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.textColor = .white
         temp.text = " "
-        temp.contentMode = .center
-        temp.textAlignment = .center
+        temp.contentMode = .left
+        temp.textAlignment = .left
+        temp.lineBreakMode = .byWordWrapping
+        temp.numberOfLines = 0
         temp.font = FontManager.regular(16).value
         return temp
     }()
     
     override func addMajorViewComponents() {
         super.addMajorViewComponents()
+        addUserComponents()
     }
     
     override func loadDataView() {
@@ -59,14 +70,20 @@ class CharacterLocationComponent: GenericBaseView<CharacterLocationData> {
     }
     
     private func addUserComponents() {
-        addSubview(mainStackView)
+        addSubview(containerView)
+        containerView.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
             
-            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
         ])
     }

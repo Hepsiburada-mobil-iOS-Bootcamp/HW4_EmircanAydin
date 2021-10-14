@@ -12,26 +12,26 @@ class CharacterCardComponent: GenericBaseView<CharacterCardData> {
     private lazy var containerView: UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.layer.cornerRadius = 6
         temp.clipsToBounds = true
-        temp.backgroundColor = .white
+        temp.backgroundColor = RickAndMortyColor.characterCellBackground.value
         return temp
     }()
     
     private lazy var mainStackView: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [imageViewComponent, labelPackComponent])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .center
+        temp.alignment = .leading
         temp.distribution = .fill
         temp.axis = .horizontal
-        temp.spacing = 20
+        temp.spacing = 10
         return temp
     }()
     
     private lazy var imageViewComponent: CustomImageViewComponentContainer = {
         let temp = CustomImageViewComponentContainer()
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        temp.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        temp.widthAnchor.constraint(equalToConstant: 200).isActive = true
         temp.layer.cornerRadius = 4
         temp.layer.shadowColor = UIColor.black.cgColor
         temp.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -71,13 +71,13 @@ class CharacterCardComponent: GenericBaseView<CharacterCardData> {
             
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
             
-            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
-            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             
-            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
         ])
         

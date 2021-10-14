@@ -42,8 +42,8 @@
 		90631A41271847C8006BE066 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A40271847C8006BE066 /* FontManager.swift */; };
 		90631A4627184A4B006BE066 /* CharacterHeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A4527184A4B006BE066 /* CharacterHeaderData.swift */; };
 		90631A4927184ADA006BE066 /* CharacterHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A4827184ADA006BE066 /* CharacterHeaderComponent.swift */; };
-		90631A4C2718566C006BE066 /* CharacterInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A4B2718566C006BE066 /* CharacterInfoData.swift */; };
-		90631A4E27185712006BE066 /* CharacterInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A4D27185712006BE066 /* CharacterInfoComponent.swift */; };
+		90631A4C2718566C006BE066 /* CharacterSimpleRowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A4B2718566C006BE066 /* CharacterSimpleRowData.swift */; };
+		90631A4E27185712006BE066 /* CharacterSimpleRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A4D27185712006BE066 /* CharacterSimpleRowComponent.swift */; };
 		90631A52271858CC006BE066 /* CharacterLocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A51271858CC006BE066 /* CharacterLocationData.swift */; };
 		90631A5427185947006BE066 /* CharacterLocationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A5327185947006BE066 /* CharacterLocationComponent.swift */; };
 		90631A5727185A02006BE066 /* RickAndMortyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A5627185A02006BE066 /* RickAndMortyColor.swift */; };
@@ -115,8 +115,8 @@
 		90631A40271847C8006BE066 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		90631A4527184A4B006BE066 /* CharacterHeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterHeaderData.swift; sourceTree = "<group>"; };
 		90631A4827184ADA006BE066 /* CharacterHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterHeaderComponent.swift; sourceTree = "<group>"; };
-		90631A4B2718566C006BE066 /* CharacterInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoData.swift; sourceTree = "<group>"; };
-		90631A4D27185712006BE066 /* CharacterInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoComponent.swift; sourceTree = "<group>"; };
+		90631A4B2718566C006BE066 /* CharacterSimpleRowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSimpleRowData.swift; sourceTree = "<group>"; };
+		90631A4D27185712006BE066 /* CharacterSimpleRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSimpleRowComponent.swift; sourceTree = "<group>"; };
 		90631A51271858CC006BE066 /* CharacterLocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLocationData.swift; sourceTree = "<group>"; };
 		90631A5327185947006BE066 /* CharacterLocationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLocationComponent.swift; sourceTree = "<group>"; };
 		90631A5627185A02006BE066 /* RickAndMortyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyColor.swift; sourceTree = "<group>"; };
@@ -390,8 +390,8 @@
 		90631A4A2718565A006BE066 /* CharacterInfoComponent */ = {
 			isa = PBXGroup;
 			children = (
-				90631A4B2718566C006BE066 /* CharacterInfoData.swift */,
-				90631A4D27185712006BE066 /* CharacterInfoComponent.swift */,
+				90631A4B2718566C006BE066 /* CharacterSimpleRowData.swift */,
+				90631A4D27185712006BE066 /* CharacterSimpleRowComponent.swift */,
 			);
 			path = CharacterInfoComponent;
 			sourceTree = "<group>";
@@ -627,9 +627,9 @@
 				90631A6F27188F37006BE066 /* CharacterCardComponent.swift in Sources */,
 				90631A3A2718444B006BE066 /* BaseView.swift in Sources */,
 				901D9AAC2714A056003731CD /* AppDelegate.swift in Sources */,
-				90631A4E27185712006BE066 /* CharacterInfoComponent.swift in Sources */,
+				90631A4E27185712006BE066 /* CharacterSimpleRowComponent.swift in Sources */,
 				90631A2A271842D7006BE066 /* CustomImageViewComponentContainer.swift in Sources */,
-				90631A4C2718566C006BE066 /* CharacterInfoData.swift in Sources */,
+				90631A4C2718566C006BE066 /* CharacterSimpleRowData.swift in Sources */,
 				90631A2B271842D7006BE066 /* CustomImageViewComponentData.swift in Sources */,
 				905CAFFE27150F9300BED40C /* EndpointManager.swift in Sources */,
 				90631A5427185947006BE066 /* CharacterLocationComponent.swift in Sources */,

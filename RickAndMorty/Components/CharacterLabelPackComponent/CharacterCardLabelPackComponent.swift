@@ -13,17 +13,17 @@ class CharacterCardLabelPackComponent: GenericBaseView<CharacterCardLabelPackDat
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.clipsToBounds = true
-        temp.backgroundColor = .white
+        temp.backgroundColor = .clear
         return temp
     }()
     
     private lazy var mainStackView: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [characterHeader, characterInfo, characterOriginLocation, characterLastSeenLocation])
+        let temp = UIStackView(arrangedSubviews: [characterHeader, characterStatus, characterGender, characterOriginLocation, characterLastSeenLocation])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .center
+        temp.alignment = .leading
         temp.distribution = .fill
         temp.axis = .vertical
-        temp.spacing = 20
+        temp.spacing = 10
         return temp
     }()
     
@@ -33,8 +33,14 @@ class CharacterCardLabelPackComponent: GenericBaseView<CharacterCardLabelPackDat
         return temp
     }()
     
-    private lazy var characterInfo: CharacterInfoComponent = {
-        let temp = CharacterInfoComponent()
+    private lazy var characterStatus: CharacterSimpleRowComponent = {
+        let temp = CharacterSimpleRowComponent()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        return temp
+    }()
+    
+    private lazy var characterGender: CharacterSimpleRowComponent = {
+        let temp = CharacterSimpleRowComponent()
         temp.translatesAutoresizingMaskIntoConstraints = false
         return temp
     }()
@@ -60,7 +66,8 @@ class CharacterCardLabelPackComponent: GenericBaseView<CharacterCardLabelPackDat
         super.loadDataView()
         guard let data = returnData() else { return }
         characterHeader.setData(by: data.characterHeader)
-        characterInfo.setData(by: data.characterInfo)
+        characterStatus.setData(by: data.characterStatus)
+        characterGender.setData(by: data.characterGender)
         characterOriginLocation.setData(by: data.characterOriginLocation)
         characterLastSeenLocation.setData(by: data.characterLastSeenLocation)
     }
@@ -81,9 +88,9 @@ class CharacterCardLabelPackComponent: GenericBaseView<CharacterCardLabelPackDat
             
             mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
             
-            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
-            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             
             mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
             
