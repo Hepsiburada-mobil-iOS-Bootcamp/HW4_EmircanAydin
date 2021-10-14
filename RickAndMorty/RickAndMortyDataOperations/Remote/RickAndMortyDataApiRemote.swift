@@ -23,7 +23,6 @@ class RickAndMortyDataApiRemote: RickAndMortyCharacterDataApiRemoteProtocol {
         }  catch let error {
             print("error : \(error)")
         }
-        
     }
     
     func getCharacterById(id: Int, with completion: @escaping CharacterResultBlock) {
