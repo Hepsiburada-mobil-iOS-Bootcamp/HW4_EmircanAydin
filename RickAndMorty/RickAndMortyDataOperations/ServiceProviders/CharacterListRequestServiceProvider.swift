@@ -11,6 +11,6 @@ import DefaultNetworkOperationPackage
 class CharacterListRequestServiceProvider: ApiServiceProvider<CharacterListRequestModel> {
     
     init(request: CharacterListRequestModel) {
-        super.init(method: .get, baseUrl: BaseUrl.prod.description, path: Paths.characterListWithPage(request.page).description, data: nil)
+        super.init(method: .get, baseUrl: BaseUrl.prod.description, path: Paths.characterListWithPage.description, data: request)
     }
 }

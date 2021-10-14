@@ -19,22 +19,22 @@ enum EndpointManagers {
         var description: String {
             switch self {
             case .prod:
-                return "https://rickandmortyapi.com/api"
+                return "https://rickandmortyapi.com/api/"
             }
         }
     }
     
     enum Paths: CustomStringConvertible {
         
-        case characterListWithPage(Int)
+        case characterListWithPage
         case characterWithID(Int)
         
         var description: String {
             switch self {
-            case .characterListWithPage(let page):
-                return "/character/?page=\(page)"
+            case .characterListWithPage:
+                return "character"
             case .characterWithID(let id):
-                return "/character/\(id)"
+                return "character/\(id)"
             }
         }
         
