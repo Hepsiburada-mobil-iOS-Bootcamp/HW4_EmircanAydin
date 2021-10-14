@@ -54,6 +54,11 @@
 		90631A6A27188CD6006BE066 /* GenericCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A6927188CD6006BE066 /* GenericCollectionViewCell.swift */; };
 		90631A6D27188EC5006BE066 /* CharacterCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A6C27188EC5006BE066 /* CharacterCardData.swift */; };
 		90631A6F27188F37006BE066 /* CharacterCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A6E27188F37006BE066 /* CharacterCardComponent.swift */; };
+		90631A752718F2FC006BE066 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A742718F2FC006BE066 /* CharacterCollectionViewCell.swift */; };
+		90631A792718F493006BE066 /* CharacterCollectionComponentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A782718F493006BE066 /* CharacterCollectionComponentDelegate.swift */; };
+		90631A7B2718F4F4006BE066 /* CharacterCollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A7A2718F4F4006BE066 /* CharacterCollectionViewData.swift */; };
+		90631A7D2718F50A006BE066 /* CharacterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A7C2718F50A006BE066 /* CharacterCollectionView.swift */; };
+		90631A802718FA52006BE066 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90631A7F2718FA52006BE066 /* UICollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +132,11 @@
 		90631A6927188CD6006BE066 /* GenericCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewCell.swift; sourceTree = "<group>"; };
 		90631A6C27188EC5006BE066 /* CharacterCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCardData.swift; sourceTree = "<group>"; };
 		90631A6E27188F37006BE066 /* CharacterCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCardComponent.swift; sourceTree = "<group>"; };
+		90631A742718F2FC006BE066 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		90631A782718F493006BE066 /* CharacterCollectionComponentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionComponentDelegate.swift; sourceTree = "<group>"; };
+		90631A7A2718F4F4006BE066 /* CharacterCollectionViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewData.swift; sourceTree = "<group>"; };
+		90631A7C2718F50A006BE066 /* CharacterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionView.swift; sourceTree = "<group>"; };
+		90631A7F2718FA52006BE066 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +337,7 @@
 		90631A2427184299006BE066 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				90631A722718F2AE006BE066 /* CharacterCollectionComponents */,
 				90631A6B27188DE6006BE066 /* CharacterCardComponent */,
 				90631A612718871E006BE066 /* CharacterLabelPackComponent */,
 				90631A4F271857B4006BE066 /* CharacterLocationComponent */,
@@ -370,6 +381,7 @@
 		90631A4227184965006BE066 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				90631A7E2718FA41006BE066 /* Extensions */,
 				90631A55271859E0006BE066 /* ColorHelpers */,
 				905CAFFB27150F6E00BED40C /* EndpointManager */,
 				90631A212718428F006BE066 /* CacheManagers */,
@@ -484,6 +496,41 @@
 				90631A6E27188F37006BE066 /* CharacterCardComponent.swift */,
 			);
 			path = CharacterCardComponent;
+			sourceTree = "<group>";
+		};
+		90631A722718F2AE006BE066 /* CharacterCollectionComponents */ = {
+			isa = PBXGroup;
+			children = (
+				90631A762718F474006BE066 /* MainComponents */,
+				90631A732718F2C1006BE066 /* CellComponents */,
+			);
+			path = CharacterCollectionComponents;
+			sourceTree = "<group>";
+		};
+		90631A732718F2C1006BE066 /* CellComponents */ = {
+			isa = PBXGroup;
+			children = (
+				90631A742718F2FC006BE066 /* CharacterCollectionViewCell.swift */,
+			);
+			path = CellComponents;
+			sourceTree = "<group>";
+		};
+		90631A762718F474006BE066 /* MainComponents */ = {
+			isa = PBXGroup;
+			children = (
+				90631A782718F493006BE066 /* CharacterCollectionComponentDelegate.swift */,
+				90631A7A2718F4F4006BE066 /* CharacterCollectionViewData.swift */,
+				90631A7C2718F50A006BE066 /* CharacterCollectionView.swift */,
+			);
+			path = MainComponents;
+			sourceTree = "<group>";
+		};
+		90631A7E2718FA41006BE066 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				90631A7F2718FA52006BE066 /* UICollectionView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -633,7 +680,9 @@
 				90631A2B271842D7006BE066 /* CustomImageViewComponentData.swift in Sources */,
 				905CAFFE27150F9300BED40C /* EndpointManager.swift in Sources */,
 				90631A5427185947006BE066 /* CharacterLocationComponent.swift in Sources */,
+				90631A752718F2FC006BE066 /* CharacterCollectionViewCell.swift in Sources */,
 				90631A2D271842D7006BE066 /* CustomImageLoadingType.swift in Sources */,
+				90631A7D2718F50A006BE066 /* CharacterCollectionView.swift in Sources */,
 				905CB00F27151CDD00BED40C /* CharacterRequestModel.swift in Sources */,
 				90631A232718428F006BE066 /* ImageCacheManager.swift in Sources */,
 				90631A392718444B006BE066 /* GenericBaseView.swift in Sources */,
@@ -648,6 +697,7 @@
 				90631A6827188C87006BE066 /* BaseCollectionViewCell.swift in Sources */,
 				90631A4627184A4B006BE066 /* CharacterHeaderData.swift in Sources */,
 				90631A6A27188CD6006BE066 /* GenericCollectionViewCell.swift in Sources */,
+				90631A792718F493006BE066 /* CharacterCollectionComponentDelegate.swift in Sources */,
 				90631A362718444B006BE066 /* BaseViewController.swift in Sources */,
 				905CB0052715128B00BED40C /* CharacterListRequestServiceProvider.swift in Sources */,
 				905CAFF42714FDC200BED40C /* CharacterResponseModel.swift in Sources */,
@@ -656,12 +706,14 @@
 				901D9AAE2714A056003731CD /* SceneDelegate.swift in Sources */,
 				905CB00A2715133600BED40C /* CharacterListRequestModel.swift in Sources */,
 				905CAFEE2714A92F00BED40C /* RMCharacterLocationModel.swift in Sources */,
+				90631A802718FA52006BE066 /* UICollectionView+Extension.swift in Sources */,
 				90631A52271858CC006BE066 /* CharacterLocationData.swift in Sources */,
 				90631A66271887A2006BE066 /* CharacterCardLabelPackData.swift in Sources */,
 				90631A382718444B006BE066 /* GenericDataProtocol.swift in Sources */,
 				90631A6027185C72006BE066 /* LocationTitle.swift in Sources */,
 				90631A41271847C8006BE066 /* FontManager.swift in Sources */,
 				905CAFF92714FF1300BED40C /* RickAndMortyCharacterDataApiRemoteProtocol.swift in Sources */,
+				90631A7B2718F4F4006BE066 /* CharacterCollectionViewData.swift in Sources */,
 				90631A352718444B006BE066 /* GenericValueProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

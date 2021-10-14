@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterCardComponent: GenericBaseView<CharacterCardData> {
+class CharacterCardComponent: GenericBaseView<GenericDataProtocol> {
     
     private lazy var containerView: UIView = {
         let temp = UIView()
@@ -51,8 +51,9 @@ class CharacterCardComponent: GenericBaseView<CharacterCardData> {
         addUserComponents()
     }
     
-    override func setData(by value: CharacterCardData?) {
-        guard let data = value else { return }
+    override func loadDataView() {
+        super.loadDataView()
+        guard let data = returnData() as? CharacterCardData else { return }
         imageViewComponent.setData(by: data.imageData)
         labelPackComponent.setData(by: data.labelPackData)
     }
