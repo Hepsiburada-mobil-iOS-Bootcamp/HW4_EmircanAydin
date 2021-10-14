@@ -12,6 +12,10 @@ class GenericBaseView<T>: BaseView {
     
     private var data: T?
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
     init(frame: CGRect = .zero, data: T? = nil) {
         self.data = data
         super.init(frame: frame)
