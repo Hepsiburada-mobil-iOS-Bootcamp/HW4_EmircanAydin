@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CharacterCardData {
+class CharacterCardData: GenericDataProtocol {
 
     private(set) var imageData: CustomImageViewComponentData
     private(set) var labelPackData: CharacterCardLabelPackData
