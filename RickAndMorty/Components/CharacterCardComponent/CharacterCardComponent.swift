@@ -9,6 +9,17 @@ import UIKit
 
 class CharacterCardComponent: GenericBaseView<GenericDataProtocol> {
     
+    private lazy var shadowContainer: UIView = {
+         let temp = UIView()
+         temp.translatesAutoresizingMaskIntoConstraints = false
+         temp.layer.shadowColor = UIColor.black.cgColor
+         temp.layer.shadowOffset = CGSize(width: 0, height: 2)
+         temp.layer.shadowRadius = 6
+         temp.layer.shadowOpacity = 0.6
+         temp.layer.cornerRadius = 6
+         return temp
+     }()
+    
     private lazy var containerView: UIView = {
         let temp = UIView()
         temp.translatesAutoresizingMaskIntoConstraints = false
@@ -59,25 +70,25 @@ class CharacterCardComponent: GenericBaseView<GenericDataProtocol> {
     }
     
     private func addUserComponents() {
-        addSubview(containerView)
+        addSubview(shadowContainer)
+        shadowContainer.addSubview(containerView)
         containerView.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
             
-            containerView.topAnchor.constraint(equalTo: topAnchor),
+            shadowContainer.topAnchor.constraint(equalTo: topAnchor),
+            shadowContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
+            shadowContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            shadowContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.topAnchor.constraint(equalTo: shadowContainer.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: shadowContainer.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: shadowContainer.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor),
             
             mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            
             mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            
             mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            
             mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
         ])

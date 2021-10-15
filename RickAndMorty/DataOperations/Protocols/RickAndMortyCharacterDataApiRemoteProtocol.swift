@@ -8,6 +8,7 @@
 import Foundation
 import DefaultNetworkOperationPackage
 
+typealias CharacterListResult = Result<CharacterResponseModel, ErrorResponse>
 typealias CharacterListResultBlock = (Result<CharacterResponseModel, ErrorResponse>) -> Void
 typealias CharacterResultBlock = (Result<RMCharacterModel, ErrorResponse>) -> Void
 

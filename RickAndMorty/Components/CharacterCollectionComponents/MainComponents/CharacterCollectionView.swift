@@ -14,7 +14,7 @@ class CharacterCollectionView: GenericBaseView<CharacterCollectionViewData> {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 10
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -41,6 +41,8 @@ class CharacterCollectionView: GenericBaseView<CharacterCollectionViewData> {
     private func addCollectionView() {
         addSubview(collectionView)
         
+        collectionView.backgroundColor = RickAndMortyColor.defaultBackground.value
+        
         NSLayoutConstraint.activate([
             
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -49,7 +51,12 @@ class CharacterCollectionView: GenericBaseView<CharacterCollectionViewData> {
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])
-        
+    }
+    
+    func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -75,7 +82,7 @@ extension CharacterCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = (UIScreen.main.bounds.height - 50) / 3
-        let width = UIScreen.main.bounds.width
+        let width = UIScreen.main.bounds.width - 20
         return CGSize(width: width, height: height)
     }
 }
