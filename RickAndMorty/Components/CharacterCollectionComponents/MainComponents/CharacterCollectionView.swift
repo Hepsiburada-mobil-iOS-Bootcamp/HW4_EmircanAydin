@@ -25,6 +25,7 @@ class CharacterCollectionView: GenericBaseView<CharacterCollectionViewData> {
         collection.keyboardDismissMode = .onDrag
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
+        collection.genericRegisterCell(LoadingCellView.self)
         collection.genericRegisterCell(CharacterCollectionViewCell.self)
         return collection
     }()
@@ -53,6 +54,10 @@ class CharacterCollectionView: GenericBaseView<CharacterCollectionViewData> {
         ])
     }
     
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return delegate?.isLoadingCell(for: indexPath.row) ?? false
+    }
+    
     func reloadCollectionView() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -71,16 +76,32 @@ extension CharacterCollectionView: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if isLoadingCell(for: indexPath) {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoadingCellView.identifier, for: indexPath) as? LoadingCellView else { fatalError() }
+            return cell
+        }
+        
         guard let data = delegate?.getData(at: indexPath.row) else { fatalError() }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as? CharacterCollectionViewCell else { fatalError() }
         cell.setRowData(data: data)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if isLoadingCell(for: indexPath){
+            delegate?.getMoreData()
+        }
     }
 }
 
 extension CharacterCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if isLoadingCell(for: indexPath) {
+            return CGSize(width: UIScreen.main.bounds.width, height: 50)
+        }
+        
         let height = (UIScreen.main.bounds.height - 50) / 3
         let width = UIScreen.main.bounds.width - 20
         return CGSize(width: width, height: height)

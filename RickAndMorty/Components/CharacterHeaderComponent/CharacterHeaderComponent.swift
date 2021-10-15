@@ -24,6 +24,8 @@ class CharacterHeaderComponent: GenericBaseView<CharacterHeaderData> {
         temp.text = " "
         temp.contentMode = .left
         temp.textAlignment = .left
+        temp.lineBreakMode = .byWordWrapping
+        temp.numberOfLines = 0
         temp.font = FontManager.bold(24).value
         return temp
     }()

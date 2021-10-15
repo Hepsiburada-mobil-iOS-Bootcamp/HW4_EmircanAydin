@@ -29,7 +29,6 @@ class CharacterListViewController: BaseViewController<CharacterListViewModel> {
     }
     
     private func addmainComponent() {
-        //mainComponent = mainComponent()
         mainComponent = CharacterCollectionView()
         mainComponent.translatesAutoresizingMaskIntoConstraints = false
         
