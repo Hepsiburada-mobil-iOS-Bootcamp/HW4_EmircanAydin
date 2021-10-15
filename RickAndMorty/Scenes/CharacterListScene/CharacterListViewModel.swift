@@ -16,7 +16,7 @@ class CharacterListViewModel {
     
     private let disposeBag = DisposeBag()
     
-    private let formatter: CharacterListDataFormatterProtocol
+    private var formatter: CharacterListDataFormatterProtocol
     private let operationManager: CharacterListOperationsProtocol
     
     private var data: CharacterResponseModel?
@@ -32,12 +32,13 @@ class CharacterListViewModel {
         state = completion
     }
     
-    func getCharacterList() {
+    func getCharacterList(with pagination: Bool = false) {
         state?(.loading)
-        operationManager.getCharacterListData(page: 2)
+        operationManager.getCharacterListData(page: formatter.paginationInfo.page)
     }
     
     private func dataHandler(with response: CharacterResponseModel) {
+        formatter.paginationInfo.fetching = false
         data = response
         state?(.done)
     }
@@ -48,6 +49,7 @@ class CharacterListViewModel {
             case .failure(let error):
                 print("error: \(error)")
             case .success(let response):
+                self?.formatter.setData(with: response)
                 self?.dataHandler(with: response)
             }
         }.disposed(by: disposeBag)
@@ -57,16 +59,25 @@ class CharacterListViewModel {
 extension CharacterListViewModel: CharacterCollectionComponentDelegate {
     
     func getNumberOfSection() -> Int {
-        return 1
+        return formatter.getNumberOfSection()
     }
     
     func getItemCount(in section: Int) -> Int {
-        guard let dataUnwrapped = data else { return 0 }
-        return dataUnwrapped.results.count
+        return formatter.getNumbeOfItem(in: section)
     }
     
     func getData(at index: Int) -> GenericDataProtocol? {
-        guard let dataUnwrapped = data else { return nil }
-        return formatter.getItem(from: dataUnwrapped.results[index])
+        return formatter.getItem(from: formatter.getData(at: index))
     }
+    
+    func getMoreData() {
+        guard formatter.paginationInfo.checkLoadingMore() else { return }
+        formatter.paginationInfo.nextOffset()
+        getCharacterList(with: true)
+    }
+    
+    func isLoadingCell(for index: Int) -> Bool {
+        return index >= formatter.getCount()
+    }
+    
 }
