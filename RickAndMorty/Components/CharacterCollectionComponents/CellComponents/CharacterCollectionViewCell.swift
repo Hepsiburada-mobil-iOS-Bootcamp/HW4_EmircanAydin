@@ -14,5 +14,4 @@ class CharacterCollectionViewCell: GenericCollectionViewCell<GenericDataProtocol
         backgroundColor = RickAndMortyColor.characterCellBackground.value
         contentView.backgroundColor = RickAndMortyColor.characterCellBackground.value
     }
-    
 }
